@@ -1,0 +1,4 @@
+- [GitHub](https://lihuanji.github.io/2018/02/03/stream/)
+- [简书](https://www.jianshu.com/p/2c76ef653af6)
+- [掘金](https://juejin.im/post/5a7573b16fb9a063543c0479)
+- [知乎](https://zhuanlan.zhihu.com/p/33559074)

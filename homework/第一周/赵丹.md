@@ -1,0 +1,3 @@
+- [GitHub](https://happygloria.github.io/2018/01/12/promise-A/)
+- [知乎](https://zhuanlan.zhihu.com/p/32917785)
+- [掘金](https://juejin.im/post/5a5a3151f265da3e58594d8d)

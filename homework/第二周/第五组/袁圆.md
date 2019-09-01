@@ -1,0 +1,3 @@
+- [简书](https://www.jianshu.com/p/1be18b61c7d6)
+- [掘金](https://juejin.im/post/5a61a5236fb9a01ca26790ce)
+- [github](https://github.com/wallaceyuan/JsAsync)

@@ -1,0 +1,21 @@
+{
+  "name": "npm250",
+  "version": "1.0.0",
+  "description": "npm200",
+  "main": "1.exports.js",
+  "scripts": {
+    "test": "mocha",
+    "mime": "mime"
+  },
+  "keywords": [
+    "zfpx"
+  ],
+  "author": "zhufengnodejs",
+  "license": "MIT",
+  "dependencies": {
+    "mime": "^2.2.0",
+    "mime": "^1.2.0"
+  },
+  "devDependencies": {
+  }
+}

@@ -1,0 +1,3 @@
+- [GitHub](https://github.com/nightzing/selfPromise)
+- [简书](https://www.jianshu.com/p/c77cfde7ebe1?)
+- [掘金](https://juejin.im/post/5a5896e76fb9a01ca2676e98)

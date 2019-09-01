@@ -1,0 +1,3 @@
+- [github](https://github.com/akirastorm/blog/blob/master/stream%20pipe%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E7%AE%80%E5%8C%96%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
+- [掘金](https://juejin.im/post/5a75403ef265da4e7c185b3b)
+- [简书](https://www.jianshu.com/p/6bae1b8d835a)

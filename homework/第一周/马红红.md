@@ -1,0 +1,3 @@
+- [CSDN](http://blog.csdn.net/whynotgonow/article/details/79048797)
+- [掘金](https://juejin.im/post/5a56098af265da3e3d490a82)
+- [github](https://github.com/whynotgonow/myPromise/tree/master)

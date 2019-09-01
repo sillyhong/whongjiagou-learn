@@ -1,0 +1,12 @@
+POST /User HTTP/1.1
+Host: localhost:8080
+User-Agent: curl/7.53.0
+Accept: */*
+Content-Length: 15
+Content-Type: application/x-www-form-urlencoded
+
+name=zfpx&age=9
+
+like=girl
+
+like=girl2

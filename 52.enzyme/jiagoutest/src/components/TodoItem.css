@@ -1,0 +1,7 @@
+.todo{
+ font-family: 'Courier New', Courier, monospace;
+}
+
+.todo-completed{
+    text-decoration: line-through;
+}

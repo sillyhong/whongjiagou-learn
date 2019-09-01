@@ -1,0 +1,6 @@
+- [稀土掘金](https://juejin.im/post/5a5f66e7518825733201a738)
+- [简书](https://zhuanlan.zhihu.com/p/33044131)
+- [知乎](https://www.zhihu.com)
+- [CSDN博客](http://blog.csdn.net/ngaiwe/article/details/79091059)
+- [github](https://github.com/ngaiwe/blog-hexo)
+- [个人博客](http://ngaiwe.com)

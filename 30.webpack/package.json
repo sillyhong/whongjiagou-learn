@@ -1,0 +1,33 @@
+{
+  "name": "30.webpack",
+  "version": "1.0.0",
+  "description": "1. 构建一个react webpack配置\r 2. webpack常用的优化方案\r 3. 如何编写自定义loader和plugin",
+  "main": "index.js",
+  "scripts": {
+    "build-production": "cross-env NODE_ENV=production && webpack --mode development",
+    "build-development": "cross-env NODE_ENV=development &&  webpack   --mode development",
+    "build-react": "webpack --config webpack.react.config.js --mode development",
+    "build-lib": "webpack --config webpack.lib.config.js --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.11",
+    "happypack": "^5.0.0-beta.1",
+    "html-webpack-plugin": "^3.0.6",
+    "style-loader": "^0.20.3",
+    "webpack-merge": "^4.1.2",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
+  }
+}

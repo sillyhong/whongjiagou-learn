@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>聊天室</title>
+</head>
+
+<body>
+    <input type="text" id="content">
+    <button onclick="send()">发言</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let inputContent = document.querySelector('#content');
+        //1.空函数，什么都不传 http://localhost:8080 http://localhost:8080/
+        let socket = io('http://localhost:8080/dev');// new Weboscket("ws://localhost:8080");
+        // let socket = io.connect();
+        // let socket = io.connect('/');
+        // let socket = io.connect('http://localhost:8080/');
+        socket.on('connect', function () {
+            console.log('连接成功');
+            socket.send('服务器你好');
+            //socket.emit('message','服务器你好');
+        });
+        //监听服务器发过来的消息
+        socket.on('message', function (message) {
+            console.log(message);
+        });
+        socket.on('error', function (error) {
+            console.log(error);
+        });
+        function send() {
+            let val = inputContent.value;
+            socket.send(val);
+        }
+    </script>
+</body>
+
+</html>

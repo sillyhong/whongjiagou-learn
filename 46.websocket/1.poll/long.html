@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="clock"></div>
+    <script>
+        function send() {
+            let xhr = new XMLHttpRequest;
+            xhr.open('get', '/clock', true);
+            xhr.onreadystatechange = function () {
+                document.querySelector('#clock').innerHTML = xhr.responseText;
+                //在上一次的响应成功结束之后再发下一次的请求
+                send();
+            }
+            xhr.send();
+        }
+        send();
+    </script>
+</body>
+
+</html>

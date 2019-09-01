@@ -1,0 +1,3 @@
+- [github](https://gcystar.github.io/2018/01/13/async/%E5%A6%82%E4%BD%95%E8%AE%A9%E5%BC%82%E6%AD%A5%E6%9B%B4%E4%BC%98%E7%BE%8E/)
+- [掘金](https://juejin.im/post/5a5a3cd4518825732646c261)
+- [segmentfault](https://segmentfault.com/a/1190000012830991)

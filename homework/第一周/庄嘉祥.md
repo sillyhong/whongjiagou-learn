@@ -1,0 +1,4 @@
+- [github](https://github.com/JX-Zhuang/architect/tree/master/Promise)
+- [掘金](https://juejin.im/post/5a5837946fb9a01ca871e5be)
+- [知乎](https://zhuanlan.zhihu.com/p/32916856)
+- [简书](https://www.jianshu.com/p/7073bd69446a)

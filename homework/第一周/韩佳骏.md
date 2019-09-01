@@ -1,0 +1,4 @@
+- [github](https://github.com/han6054/MyPromise-A-)
+- [掘金](https://juejin.im/post/5a59ea966fb9a01cb1391741)
+- [知乎](https://zhuanlan.zhihu.com/p/33003659)
+- [简书](https://www.jianshu.com/p/7f4ccf357de8)

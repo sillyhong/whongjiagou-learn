@@ -1,0 +1,3 @@
+- [git](https://fancierpj0.github.io/iPromise/)
+- [掘金](https://juejin.im/post/5a59e78ff265da3e3e33ba6e#heading-0)
+- [简书](https://www.jianshu.com/p/e7b8147ffc56)

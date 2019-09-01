@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>评论列表</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>欢迎评论</h2>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group" id="comments">
+
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <form onsubmit="addComment(event)">
+                            <!-- <div class="form-group">
+                                <label for="username">用户名</label>
+                                <input type="text" id="username" class="form-control">
+                            </div> -->
+                            <div class="form-group">
+                                <label for="content">内容</label>
+                                <input type="text" id="content" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function getComments() {
+            $.get('/api/comments').then(res => {
+                if (res.code == 0) {
+                    let html = res.comments.map(comment => `
+                    <li class="list-group-item">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                    <img style="border-radius:5px" class="media-object" src="${comment.avatar}" >
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">${comment.username}</h4>
+                                    <p>${comment.content}</p>
+                                    <p>${comment.time}</p>
+                                </div>
+                            </div>
+                        </li>`).join('');
+
+                    $('#comments').html(html);
+                } else {
+                    alert('获取评论列表失败');
+                }
+            });
+        }
+        $(function () {
+            getComments();
+        });
+
+        function htmlEncode(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+        function addComment(event) {
+            event.preventDefault();
+            //let username = $('#username').val(); <
+            let content = $('#content').val();
+            $.post('/api/comments', { content }).then(res => {
+                if (res.code == 0) {
+                    getComments();
+                } else {
+                    alert(res.error);
+                    location.href = '/login.html';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

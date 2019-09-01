@@ -1,0 +1,7 @@
+{
+    "favorites.resources": [
+        "node_modules\\_webpack-cli@2.0.13@webpack-cli",
+        "node_modules\\_webpack@4.2.0@webpack",
+        "vscode-debugger.js"
+    ]
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>websocket</title>
+</head>
+
+<body>
+    <script>
+        let socket = new WebSocket('ws://localhost:9999');
+        //当连接建立成功之后执行此回调函数
+        socket.onopen = function () {
+            console.log('客户端连接成功');
+            socket.send('hello');
+        }
+        //当客户端收到服务器的消息之后执行此回调函数
+        socket.onmessage = function (event) {
+            console.log(event.data);//event.data才是消息的内容
+        }
+    </script>
+</body>
+
+</html>

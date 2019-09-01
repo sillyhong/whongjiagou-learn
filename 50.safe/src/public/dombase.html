@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <input id="website" />
+    <button id="addBtn">添加</button>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $('#addBtn').click(function () {
+            let webiste = $('#website').val();
+            let html = `<a href="${webiste}">跳转</a>`;
+            $('#container').html(html);
+        });
+    </script>
+</body>
+
+</html>

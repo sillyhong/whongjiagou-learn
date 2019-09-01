@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="send()">发言</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io('http://localhost:7001');
+        socket.on('connect', function () {
+            console.log('连接成功');
+            socket.emit('getAllMessages');
+        });
+        socket.on('allMessages', function (messages) {
+            console.log(messages);
+        });
+        socket.on('messageAdded', function (message) {
+            console.log(message);
+        });
+        socket.on('online', function (message) {
+            console.log(message);
+        });
+        socket.on('offline', function (message) {
+            console.log(message);
+        });
+        function send() {
+            socket.emit('addMessage', { content: '你好' });
+        }
+
+    </script>
+</body>
+
+</html>

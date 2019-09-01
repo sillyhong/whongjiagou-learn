@@ -1,0 +1,4 @@
+- [GitHub](https://lihuanji.github.io/2018/02/10/tcp/)
+- [简书](https://www.jianshu.com/p/54f2140d69f7)
+- [掘金](https://juejin.im/post/5a7e939cf265da4e747fb016)
+- [知乎](https://zhuanlan.zhihu.com/p/33743161)

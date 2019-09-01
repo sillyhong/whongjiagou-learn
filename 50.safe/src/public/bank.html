@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的银行</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>用户名:
+                            <span id="username"></span>
+                        </h2>
+                        <h2>余额:
+                            <span id="balance"></span>
+                        </h2>
+                    </div>
+                    <div class="panel-body">
+                        <form onsubmit="transfer(event)">
+                            <div class="form-group">
+                                <label for="target">对户用户名</label>
+                                <input type="text" id="target" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">金额</label>
+                                <input type="text" id="amount" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="captcha" id="captchaSvg"></label>
+                                <input type="text" id="captcha" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function getUserInfo() {
+            //获取当前登录用户的详情
+            $.get('/userInfo', function (res) {
+                if (res.code == 0) {
+                    let user = res.user;
+                    $('#username').html(user.username);
+                    $('#balance').html(user.balance);
+                } else {
+                    alert(res.error);
+                    location.href = '/login.html';
+                }
+            });
+        }
+        //获取验证码
+        function getCaptcha() {
+            $.get('/api/captcha').then(res => {
+                if (res.code == 0) {
+                    $('#captchaSvg').html(res.data);
+                } else {
+                    alert(res.error);
+                }
+            });
+        }
+        $(function () {
+            getUserInfo();
+            getCaptcha();
+        });
+        function getToken() {
+            let result = document.cookie.match(/token=([^;]+)/);
+            return result ? result[1] : '';
+        }
+        function transfer(event) {
+            event.preventDefault();
+            let target = $('#target').val();
+            let amount = $('#amount').val();
+            let captcha = $('#captcha').val();
+            $.post('/api/transfer', {
+                target,
+                amount,
+                captcha,
+                clientToken: getToken()
+            }).then(res => {
+                if (res.code == 0) {
+                    getUserInfo();
+                } else {
+                    alert(res.error);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

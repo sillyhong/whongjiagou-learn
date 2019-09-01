@@ -1,0 +1,3 @@
+- [掘金](https://juejin.im/post/5ac6f4a7f265da237314b08c)
+- [GitHub](https://github.com/whynotgonow/react-router-dom-hash)
+- [segmentfault](https://segmentfault.com/a/1190000014313428)

@@ -1,0 +1,3 @@
+- [简书](https://www.jianshu.com/p/4948d4772289)
+- [掘金](https://juejin.im/post/5a91622b6fb9a0634214bd02)
+- [github地址](https://github.com/qinmengjiao/blog-article-qin/blob/master/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3TCP%20IP%E5%8D%8F%E8%AE%AE.md)

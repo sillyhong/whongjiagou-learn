@@ -1,0 +1,11 @@
+#! /usr/bin/env node
+let { spawn } = require('child_process');
+//detached领头 独立
+let child = spawn('node', ['www.js'], {
+    cwd: __dirname,
+    detached: true
+});
+
+//让主进程 不要再管我了。主进程在事件环里不处理监控此子进程 
+child.unref();
+process.exit(0);

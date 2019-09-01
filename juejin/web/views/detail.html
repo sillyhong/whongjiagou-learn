@@ -1,0 +1,27 @@
+<%include header.html%>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="text-center">
+                            <%=article.title%>
+                        </h2>
+                    </div>
+                    <div class="panel-body">
+                        <%-article.content%>
+                    </div>
+                    <div class="panel-footer">
+                        <%tags.forEach(tag=>{ %>
+                            <span class="label label-info" style="margin-left:5px;color:white">
+                                <a href="/?tagId=<%=tag.id%>" style="margin-left:5px;color:white">
+                                    <%=tag.name%>
+                                </a>
+                            </span>
+                            <%}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%include footer.html%>

@@ -1,0 +1,3 @@
+- [掘金](https://juejin.im/post/5a618e40518825732739adad)
+- [github](https://github.com/whynotgonow/-JS-Event-Loop/blob/master/README.md)
+- [知乎](https://zhuanlan.zhihu.com/p/33129414)

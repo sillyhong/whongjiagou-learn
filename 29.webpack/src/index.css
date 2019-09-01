@@ -1,0 +1,13 @@
+body{
+    color:red;
+}
+.avatar{
+    background-image: url(./images/avatar.png);
+    width:113px;
+    height:80px;
+}
+.square{
+    width:100px;
+    height:100px;
+    transform: translateX(100px);
+}

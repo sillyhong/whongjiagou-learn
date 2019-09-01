@@ -1,0 +1,5 @@
+- [简书](https://www.jianshu.com/p/be88da9d09ac)
+- [知乎](https://zhuanlan.zhihu.com/p/33078738)
+- [掘金](https://juejin.im/post/5a60acce518825734d14ad98)
+- [github](https://github.com/FengXianGuo/books/blob/master/Promise.md)
+- [个人博客](http://www.guofengxian.com/2018/01/18/Promise-A-%E8%A7%84%E8%8C%83%E7%9A%84%E5%AE%9E%E7%8E%B0/)

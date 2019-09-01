@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>输出</title>
+</head>
+
+<body>
+    <div id="inTag"></div>
+    <div id="inAttr"></div>
+    <div id="inFunc"></div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        let data = {
+            inTag: "<script>alert(1);<\/script>",
+            inAttr: '"><script>alert(2);<\/script>',
+            url: '"><script>alert(3);<\/script>',
+            inFunc: '"><script>alert(4);<\/script>',
+        }
+        $('#inTag').html(htmlEncode(data.inTag));
+        $('#inAttr').html(`<a href="${htmlEncode(data.inAttr)}">点我</a>`);
+        $('#inFunc').html(`<a onclick="click('${htmlEncode(data.inAttr)}')">点我</a>`);
+        function htmlEncode(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>聊天室</title>
+</head>
+
+<body>
+    <input type="text" id="content">
+    <button onclick="send()">发言</button>
+    //客户端可以进出不同的房间，在房间内说的话房间外听不到
+    <button onclick="join('red')">红房间</button>
+    <button onclick="join('green')">绿房间</button>
+    <button onclick="leave('red')">离开红房间</button>
+    <button onclick="leave('green')">离开绿房间</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let inputContent = document.querySelector('#content');
+        //1.空函数，什么都不传 http://localhost:8080 http://localhost:8080/
+        let socket = io('http://localhost:8080/chat');// new Weboscket("ws://localhost:8080");
+        // let socket = io.connect();
+        // let socket = io.connect('/');
+        // let socket = io.connect('http://localhost:8080/');
+        socket.on('connect', function () {
+            console.log('连接成功');
+            socket.send('服务器你好');
+            //socket.emit('message','服务器你好');
+        });
+        socket.on('error', function (error) {
+            console.log(error);
+        });
+        //监听服务器发过来的消息
+        socket.on('message', function (message) {
+            console.log(message);
+        });
+        function send() {
+            let val = inputContent.value;
+            socket.send(val);
+        }
+        //不同的房间有自己的名字。
+        function join(name) {
+            //向服务器发送一个消息，消息的类型叫join 参数是name
+            socket.emit('join', name);
+        }
+        function leave(name) {
+            socket.emit('leave', name);
+        }
+    </script>
+</body>
+
+</html>

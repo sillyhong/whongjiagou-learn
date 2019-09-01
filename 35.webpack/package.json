@@ -1,0 +1,20 @@
+{
+  "name": "35.webpack",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.1.0",
+    "tapable": "^1.0.0",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13"
+  },
+  "dependencies": {
+    "less": "^3.0.1"
+  }
+}

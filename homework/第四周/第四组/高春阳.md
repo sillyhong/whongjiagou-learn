@@ -1,0 +1,3 @@
+- [github](https://gcystar.github.io/2018/02/06/core/tcp%E7%9A%84%E8%AE%A4%E7%9F%A5%E5%92%8C%E5%BA%94%E7%94%A8/)
+- [segmentfault](https://segmentfault.com/a/1190000013252967)
+- [知乎](https://zhuanlan.zhihu.com/p/33748800)

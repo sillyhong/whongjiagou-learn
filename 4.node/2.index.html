@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训 www.zhufengpeixun.cn</title>
+</head>
+<body>
+
+<script>
+    console.log(1);
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET','user.json',true);
+    xhr.send();
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState == 4 && xhr.status == 200){
+        alert(xhr.responseText);
+      }
+    }
+    setTimeout(function(){
+      alert(2);
+    },1000);
+    console.log(3);
+</script>
+</body>
+</html>

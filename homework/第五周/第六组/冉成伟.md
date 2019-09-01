@@ -1,0 +1,5 @@
+* [掘金](https://juejin.im/post/5a9a94805188255560205c22)
+* [知乎](https://zhuanlan.zhihu.com/p/34201047)
+* [GitHub](https://github.com/RanCW/staticServer)
+* [csdn](http://blog.csdn.net/Ran_Cheng_wei/article/details/79433098)
+* [简书](https://www.jianshu.com/p/cd2df7bfe9fc)

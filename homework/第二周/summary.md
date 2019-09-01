@@ -1,0 +1,37 @@
+本周的作业评比开始了，请大家积级参与评比
+投票地址 https://www.wenjuan.in/s/vmqeAr/
+
+- 赵丹 https://zhuanlan.zhihu.com/p/33135623
+- 郭丰羡 https://juejin.im/post/5a6309f76fb9a01cab2858b1
+- 魏贺礼 https://zhuanlan.zhihu.com/p/33139265
+- 张振武 https://juejin.im/post/5a628bd1518825733d69261b
+- 曾鹏飞 https://www.jianshu.com/p/ca3eea359e5c
+- 杨波 https://zhuanlan.zhihu.com/p/33127885
+- 梁航 https://juejin.im/post/5a622646518825734d14b3e3
+- 王颖 https://zhuanlan.zhihu.com/p/33105489
+- 黄乾 https://juejin.im/post/5a60c56e6fb9a01ca10af86e
+- 李文利 https://zhuanlan.zhihu.com/p/33125763
+- 王乐平 https://github.com/wanglele16/myPromise/blob/master/eventLoop.md
+- 秦孟姣 https://juejin.im/post/5a6308e06fb9a01c9f5b826b
+- 胡元锋 https://zhuanlan.zhihu.com/p/33140384
+- 韩佳骏 https://zhuanlan.zhihu.com/p/33107664
+- 马宏建 https://www.jianshu.com/p/5ae0f11767cd
+- 马红红 https://zhuanlan.zhihu.com/p/33129414
+- 刘洋(大) https://juejin.im/post/5a621ce751882573315c74ba
+- 栗新宽 https://www.jianshu.com/p/90718ee094aa
+- 高春阳 https://juejin.im/post/5a5a3cd4518825732646c261
+- 庄嘉祥 https://juejin.im/post/5a601655f265da3e317e33e2
+- 张辛辛 https://zhuanlan.zhihu.com/p/33137256
+- 施杳冷峥 https://juejin.im/post/5a6212386fb9a01ca5608de3
+- 王琨玮 https://juejin.im/post/5a631349f265da3e261c0d22
+- 秦孟姣 https://juejin.im/post/5a6308e06fb9a01c9f5b826b
+- 肖波 https://juejin.im/post/5a635e48f265da3e5033da3f
+- 袁圆 https://juejin.im/post/5a61a5236fb9a01ca26790ce
+- 冉成伟 https://juejin.im/post/5a623a11f265da3e2d33846b
+- 刘卓 https://zhuanlan.zhihu.com/p/33058983
+- 夏在海 https://zhuanlan.zhihu.com/p/33140046
+- 张艳星 https://juejin.im/post/5a628e0751882573485a0956
+- 石仪娜 https://zhuanlan.zhihu.com/p/33120519
+- 陈娟 https://juejin.im/post/5a61a6786fb9a01cc026522c
+- 魏燃 https://zhuanlan.zhihu.com/p/33044131
+- 

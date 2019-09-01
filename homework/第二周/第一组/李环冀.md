@@ -1,0 +1,4 @@
+- [GitHub](https://lihuanji.github.io/2018/01/20/eventLoop/)
+- [简书](https://www.jianshu.com/p/add65a4b8937)
+- [掘金](https://juejin.im/post/5a634b606fb9a01c982cab18)
+- [知乎](https://zhuanlan.zhihu.com/p/33136054)
