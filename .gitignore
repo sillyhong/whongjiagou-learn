@@ -1,0 +1,5 @@
+.DS_Store
+npm-debug.log
+#file/ 忽略目录file下的全部内容；不管是根目录下的/file/目录，还是某个子目录/child/file/目录，都会被忽略
+node_modules/
+.history/
