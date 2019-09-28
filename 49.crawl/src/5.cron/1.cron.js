@@ -9,3 +9,8 @@ const job = new CronJob('*/10 * * * * *', function () {
     console.log(new Date().toLocaleTimeString());
 });
 job.start();
+
+
+setTimeout(()=>{
+    job.stop()
+}, 11000)

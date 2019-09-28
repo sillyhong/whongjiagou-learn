@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const jwt = require('./jwt');
+//jwt-simple 包
+const jwt = require('./jwt');//相比session节省了内存 但是增加cpu计算
 const { User } = require('./model');
 const moment = require('moment');
 const { secret } = require('./config');
@@ -11,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //把JSON格式的请求体字符串转成一个对象赋给req.body applicaton/json
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
+    console.log('req url ', req.url)
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
@@ -19,7 +21,9 @@ app.use(function (req, res, next) {
 //注册
 app.post('/signup', async function (req, res) {
     let user = req.body;//{username,password}
+    console.log('req user', user)
     let doc = await User.create(user);//返回保存成功之后的文档对象
+    console.log('doc', doc)
     res.json({
         code: 0,//0表示成功，非0表示失败
         data: {// 其它数据都放在data里
@@ -40,7 +44,7 @@ app.post('/signin', async function (req, res) {
             user: {
                 id: doc._id,
                 username: doc.username,
-                cellphoe
+                // cellphoe
             },
             //exp: new Date(Date.now() + 10 * 60 * 1000).getTime() / 1000
             exp: moment().add(10, 'minutes').valueOf()//指定过期 时间
@@ -68,4 +72,6 @@ app.get('/user', auth, function (req, res) {
         }
     });
 });
-app.listen(8080);
+app.listen(8080, ()=>{
+    console.log('server is lisetends at 8080', `http:/localhost:${8080}`)
+});

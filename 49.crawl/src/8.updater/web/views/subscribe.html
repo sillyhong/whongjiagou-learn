@@ -1,0 +1,37 @@
+<%include header.html%>
+    <style>
+        .tag {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <div class="row">
+        <form method="POST">
+            <%
+               for(let i=0;i<tags.length;i++){
+                   let tag = tags[i];
+                   %>
+                <div class="col-md-3 tag">
+                    <img src="<%=tag.image%>" />
+                    <p>
+                        <%=tag.name%>
+                    </p>
+                    <p>
+                        <%=tag.subscribe%>&nbsp;关注&nbsp;
+                            <%=tag.article%>&nbsp;文章
+                    </p>
+                    <div class="checkbox">
+                        <label>
+                            <input <%=tag.subscribed? "checked": ""%> type="checkbox" name="subscribe" value="
+                            <%=tag.id%>"> 关注
+                        </label>
+                    </div>
+                </div>
+                <%}
+            %>
+                    <input type="submit" class="btn btn-primary" />
+        </form>
+    </div>
+    <%include footer.html%>

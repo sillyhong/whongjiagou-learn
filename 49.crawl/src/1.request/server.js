@@ -10,6 +10,7 @@ const upload = multer({
     dest: path.resolve(__dirname, 'uploads')
 });
 const app = express();
+//传输的数据是二进制的，bodyParser可以解析数据
 ///下面哪个中间件生效取决于请求头中的Content-Type的值
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,7 +26,12 @@ app.post('/upload', upload.single('content'), function (req, res) {
     console.log(file);
 
 });
-app.listen(8080);
+app.listen(8080, ()=>{
+    console.log('启动成功')
+});
 /**
  * 1.要修改form encrytype='muliparty/formdata'
  */
+
+
+ //pm2x cluster spawn
