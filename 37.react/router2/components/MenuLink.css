@@ -1,0 +1,8 @@
+.navbar-nav > .nav-item-active > a{
+    color: pink;
+    background-color: rebeccapurple;
+}
+
+/* .navbar-nav > .nav-item-active > a:hover{
+    color: green;
+} */

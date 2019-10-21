@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
-export default class Person extends Component {
-    //类型校验的
-    //Invalid prop `age` of type `string` supplied to `Person`, expected `number`.in Person
-    static propTypes = {
+    export default class Person extends Component {
+        //如果defaultProps中的属性神明了， 类型校验可以通过
+        static defaultProps = {
+            name: 'wehong'
+        }
+        //参考官网 https://reactjs.org/docs/typechecking-with-proptypes.html  随着项目的增长，可以通过类型检查发现许多错误
+        //类型校验的
+        //Invalid prop `age` of type `string` supplied to `Person`, expected `number`.in Person
+       static propTypes = {
         name: PropTypes.string.isRequired,
         age: PropTypes.number.isRequired,
         gender: PropTypes.oneOf(['男', '女', '其它']),
         hobby: PropTypes.array,
         position: PropTypes.shape({
-            x: PropTypes.number,
-            y: PropTypes.number
+            x: PropTypes.number.isRequired,
+            y: PropTypes.number.isRequired
         }),
-        //因为有些时候属性较验比较复杂，
+        ////自定义因为有些时候属性较验比较复杂，
         age: function (props, propName, componentName) {
+            console.log('props', props, 'propName', propName, 'componentName', componentName)
             if (props[propName] < 0 || props[propName] > 120) {
                 throw new Error(`Invalid prop age supplied to ${componentName}, expected age between 0 and 120 in Person`);
             }
@@ -29,6 +36,7 @@ export default class Person extends Component {
     constructor(props) {
         super(props);
     }
+    //可以结合事件 处理props 但是没有必要 不属于类型检查的概念
     handleBlur = (event) => {
         let height = event.target.value;
         if (!height || isNaN(height) || parseFloat(height) < this.props.heightRange.min || parseFloat(height) > this.props.heightRange.max) {
@@ -55,13 +63,14 @@ export default class Person extends Component {
                         <td>{age}</td>
                         <td>{gender}</td>
                         <td>{hobby.toString()}</td>
-                        <td>{position.toString()}</td>
+                        <td>{JSON.stringify(position)}</td>
                     </tr>
                     <tr>
                         <td>请输入你的身高</td>
                         <td><input onBlur={this.handleBlur} /></td>
                     </tr>
                 </tbody>
+                <Page></Page>    
             </table>
         )
     }

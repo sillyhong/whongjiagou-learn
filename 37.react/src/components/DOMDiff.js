@@ -4,7 +4,10 @@ class Counter extends Component {
         super();
         this.ts = new Date().toLocaleString();
     }
+
+    //componentWillUnmount  ==> componentWillMount ==> componentDidMount 
     componentWillUnmount() {
+        // console.log(this.ts + ' componentWillUnmount');
         console.log(this.ts + ' componentWillUnmount');
     }
     componentWillMount() {
@@ -38,4 +41,4 @@ export default class Main extends Component {
             </div>
         )
     }
-}
+} 

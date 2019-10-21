@@ -3,7 +3,7 @@ let immutable = require('seamless-immutable');
 // let m2 = m1.merge({ a: 11, b: 22, c: 33 })
 // console.log(m2.b)
 let obj = immutable({ age: 8 });
-handle(obj);
+handle(obj);//不可变
 console.log(obj.age);
 
 function handle(obj) {

@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
     port:            3306,          // 数据库端口
     database:        'juejin',   // 数据库名称
     user:            'root',        // 数据库用户
-    password:        '12345',             // 数据库用户对应的密码
+    password:        'Asd123456',             // 数据库用户对应的密码
     charset:          "utf8mb4_unicode_ci",//解决了表情插入的问题
 });
 connection.connect();

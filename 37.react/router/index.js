@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //HashRouter 通过路径 里的哈希变量实现的
 //BrowserRouter  用的是 html5的history API实现 
+// import {HashRouter as Router,Route,Switch} from 'react-router-dom';
 import {HashRouter as Router,Route,Switch} from './react-router-dom';
 import App from './components/App';
 import User from './components/User';
@@ -13,23 +14,39 @@ import Login from './components/Login';
  * Router是路由容器
  * Route代表一条的路由规则
  */
-let Home = (props)=>{
+let Home = (props, context)=>{
+  console.log('props', props, 'context', context)
     return <div>首页</div>
 }
 let Profile = ()=><div>个人设置</div>
 // if if if    if else 
 //渲染的时候会先取当前的路径(location.hash),然后跟path进行匹配，如果能匹配上则显示component指定的组件，如果不能匹配，则不显示
+// ReactDOM.render(
+//        <App>
+//          <Switch>
+//           <Route  path="/home" component={Home}/>
+//           <Route path="/user" component={User}/>
+//           <Route path="/login" component={Login}/>
+//           <Protected path="/profile" component={Profile}/>
+//          </Switch>
+//        </App>,
+//     document.querySelector('#root')
+// );
+//跑通路由
 ReactDOM.render(
-       <App>
-         <Switch>
-          <Route path="/home" component={Home}/>
-          <Route path="/user" component={User}/>
-          <Route path="/login" component={Login}/>
-          <Protected path="/profile" component={Profile}/>
-         </Switch>
-       </App>,
-    document.querySelector('#root')
-);
+         <App>
+           <Router>
+             <Switch>
+              <Route  path="/home" component={Home}/>
+              <Route path="/user" component={User}/>
+              <Route path="/login" component={Login}/>
+              <Protected path="/profile" component={Profile}/>
+            </Switch>  
+           
+           </Router>
+         </App>,
+      document.querySelector('#root')
+  );
 /**
  * 
  {

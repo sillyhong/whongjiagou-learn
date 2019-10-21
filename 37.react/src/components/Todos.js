@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fromJS, Map, List, is } from 'immutable';
 class PureComponent extends Component {
     shouldComponentUpdate(nextProps, nextState) {
+        //使用is替换
         return !(is(newProps, this.props) && is(nextState, this.state));
         //循环下一个新的属性对象的每一个属性，判断新的属性值和旧的属性是不是同一个
         //重点强调 ，这个比较属性属于浅比较

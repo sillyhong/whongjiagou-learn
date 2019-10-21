@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+
 class Title extends Component {
     static contextTypes = {
         color: PropTypes.string

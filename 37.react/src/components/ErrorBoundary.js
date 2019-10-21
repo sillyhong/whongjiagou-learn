@@ -17,7 +17,7 @@ class ErrorBoundary extends Component{
 
 class Todo extends Component{
     render(){
-        return <div>ddd</div>
+        return <div>{null.toString()}</div>
     }
 }
 export default class MyPage extends Component{

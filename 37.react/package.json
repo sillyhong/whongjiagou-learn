@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode development",
-    "dev": "webpack-dev-server --mode development"
+    "dev": "webpack-dev-server --mode development  --debug true --progress true"
   },
   "keywords": [],
   "author": "",
@@ -20,16 +20,19 @@
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.1.0",
     "prop-types": "^15.6.1",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
     "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13",
+    "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
-    "path-to-regexp": "^2.2.0",
-    "react-router-dom": "^4.2.2"
+    "bootstrap": "^4.3.1",
+    "immutable": "^4.0.0-rc.12",
+    "path-to-regexp": "^2.4.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-router-dom": "^4.2.2",
+    "seamless-immutable": "^7.1.4"
   }
 }
