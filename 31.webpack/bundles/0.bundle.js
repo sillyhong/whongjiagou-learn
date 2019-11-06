@@ -1,5 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
-
+       //二维数组  id: 0 obj: chunk
     /***/ "./src/video.js":
     /***/ (function(module, __webpack_exports__, __webpack_require__) {
     

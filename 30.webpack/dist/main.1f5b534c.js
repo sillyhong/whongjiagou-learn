@@ -11,20 +11,20 @@
 /******/
 /******/ 	// eslint-disable-next-line no-unused-vars
 /******/ 	function hotDownloadUpdateChunk(chunkId) {
-/******/ 		var head = document.getElementsByTagName("head")[0];
 /******/ 		var script = document.createElement("script");
 /******/ 		script.charset = "utf-8";
 /******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + hotCurrentHash + ".hot-update.js";
-/******/ 		;
-/******/ 		head.appendChild(script);
+/******/ 		if (null) script.crossOrigin = null;
+/******/ 		document.head.appendChild(script);
 /******/ 	}
 /******/
 /******/ 	// eslint-disable-next-line no-unused-vars
 /******/ 	function hotDownloadManifest(requestTimeout) {
 /******/ 		requestTimeout = requestTimeout || 10000;
 /******/ 		return new Promise(function(resolve, reject) {
-/******/ 			if (typeof XMLHttpRequest === "undefined")
+/******/ 			if (typeof XMLHttpRequest === "undefined") {
 /******/ 				return reject(new Error("No browser support"));
+/******/ 			}
 /******/ 			try {
 /******/ 				var request = new XMLHttpRequest();
 /******/ 				var requestPath = __webpack_require__.p + "" + hotCurrentHash + ".hot-update.json";
@@ -62,12 +62,15 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7fb1b2646476d7e464cd"; // eslint-disable-line no-unused-vars
+/******/ 	// eslint-disable-next-line no-unused-vars
+/******/ 	var hotCurrentHash = "1f5b534cf3a39f262982";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
-/******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
-/******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
-/******/ 	var hotCurrentParentsTemp = []; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentChildModule;
+/******/ 	// eslint-disable-next-line no-unused-vars
+/******/ 	var hotCurrentParents = [];
+/******/ 	// eslint-disable-next-line no-unused-vars
+/******/ 	var hotCurrentParentsTemp = [];
 /******/
 /******/ 	// eslint-disable-next-line no-unused-vars
 /******/ 	function hotCreateRequire(moduleId) {
@@ -76,13 +79,16 @@
 /******/ 		var fn = function(request) {
 /******/ 			if (me.hot.active) {
 /******/ 				if (installedModules[request]) {
-/******/ 					if (installedModules[request].parents.indexOf(moduleId) === -1)
+/******/ 					if (installedModules[request].parents.indexOf(moduleId) === -1) {
 /******/ 						installedModules[request].parents.push(moduleId);
+/******/ 					}
 /******/ 				} else {
 /******/ 					hotCurrentParents = [moduleId];
 /******/ 					hotCurrentChildModule = request;
 /******/ 				}
-/******/ 				if (me.children.indexOf(request) === -1) me.children.push(request);
+/******/ 				if (me.children.indexOf(request) === -1) {
+/******/ 					me.children.push(request);
+/******/ 				}
 /******/ 			} else {
 /******/ 				console.warn(
 /******/ 					"[HMR] unexpected require(" +
@@ -109,7 +115,8 @@
 /******/ 		for (var name in __webpack_require__) {
 /******/ 			if (
 /******/ 				Object.prototype.hasOwnProperty.call(__webpack_require__, name) &&
-/******/ 				name !== "e"
+/******/ 				name !== "e" &&
+/******/ 				name !== "t"
 /******/ 			) {
 /******/ 				Object.defineProperty(fn, name, ObjectFactory(name));
 /******/ 			}
@@ -134,6 +141,10 @@
 /******/ 				}
 /******/ 			}
 /******/ 		};
+/******/ 		fn.t = function(value, mode) {
+/******/ 			if (mode & 1) value = fn(value);
+/******/ 			return __webpack_require__.t(value, mode & ~1);
+/******/ 		};
 /******/ 		return fn;
 /******/ 	}
 /******/
@@ -151,7 +162,7 @@
 /******/ 			// Module API
 /******/ 			active: true,
 /******/ 			accept: function(dep, callback) {
-/******/ 				if (typeof dep === "undefined") hot._selfAccepted = true;
+/******/ 				if (dep === undefined) hot._selfAccepted = true;
 /******/ 				else if (typeof dep === "function") hot._selfAccepted = dep;
 /******/ 				else if (typeof dep === "object")
 /******/ 					for (var i = 0; i < dep.length; i++)
@@ -159,7 +170,7 @@
 /******/ 				else hot._acceptedDependencies[dep] = callback || function() {};
 /******/ 			},
 /******/ 			decline: function(dep) {
-/******/ 				if (typeof dep === "undefined") hot._selfDeclined = true;
+/******/ 				if (dep === undefined) hot._selfDeclined = true;
 /******/ 				else if (typeof dep === "object")
 /******/ 					for (var i = 0; i < dep.length; i++)
 /******/ 						hot._declinedDependencies[dep[i]] = true;
@@ -224,8 +235,9 @@
 /******/ 	}
 /******/
 /******/ 	function hotCheck(apply) {
-/******/ 		if (hotStatus !== "idle")
+/******/ 		if (hotStatus !== "idle") {
 /******/ 			throw new Error("check() is only allowed in idle status");
+/******/ 		}
 /******/ 		hotApplyOnUpdate = apply;
 /******/ 		hotSetStatus("check");
 /******/ 		return hotDownloadManifest(hotRequestTimeout).then(function(update) {
@@ -247,8 +259,8 @@
 /******/ 			});
 /******/ 			hotUpdate = {};
 /******/ 			var chunkId = "main";
+/******/ 			// eslint-disable-next-line no-lone-blocks
 /******/ 			{
-/******/ 				// eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
 /******/ 			}
@@ -335,7 +347,7 @@
 /******/ 			var outdatedModules = [updateModuleId];
 /******/ 			var outdatedDependencies = {};
 /******/
-/******/ 			var queue = outdatedModules.slice().map(function(id) {
+/******/ 			var queue = outdatedModules.map(function(id) {
 /******/ 				return {
 /******/ 					chain: [id],
 /******/ 					id: id
@@ -419,6 +431,7 @@
 /******/ 		for (var id in hotUpdate) {
 /******/ 			if (Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
 /******/ 				moduleId = toModuleId(id);
+/******/ 				/** @type {TODO} */
 /******/ 				var result;
 /******/ 				if (hotUpdate[id]) {
 /******/ 					result = getAffectedStuff(moduleId);
@@ -428,6 +441,7 @@
 /******/ 						moduleId: id
 /******/ 					};
 /******/ 				}
+/******/ 				/** @type {Error|false} */
 /******/ 				var abortError = false;
 /******/ 				var doApply = false;
 /******/ 				var doDispose = false;
@@ -510,12 +524,15 @@
 /******/ 			moduleId = outdatedModules[i];
 /******/ 			if (
 /******/ 				installedModules[moduleId] &&
-/******/ 				installedModules[moduleId].hot._selfAccepted
-/******/ 			)
+/******/ 				installedModules[moduleId].hot._selfAccepted &&
+/******/ 				// removed self-accepted modules should not be required
+/******/ 				appliedUpdate[moduleId] !== warnUnexpectedRequire
+/******/ 			) {
 /******/ 				outdatedSelfAcceptedModules.push({
 /******/ 					module: moduleId,
 /******/ 					errorHandler: installedModules[moduleId].hot._selfAccepted
 /******/ 				});
+/******/ 			}
 /******/ 		}
 /******/
 /******/ 		// Now in "dispose" phase
@@ -582,7 +599,7 @@
 /******/ 			}
 /******/ 		}
 /******/
-/******/ 		// Not in "apply" phase
+/******/ 		// Now in "apply" phase
 /******/ 		hotSetStatus("apply");
 /******/
 /******/ 		hotCurrentHash = hotUpdateNewHash;
@@ -726,17 +743,32 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
 /******/ 	};
 /******/
 /******/ 	// define __esModule on exports
 /******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -752,27 +784,96 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "http://img.zhufengpeixun.cn";
 /******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire("./src/lazy.js")(__webpack_require__.s = "./src/lazy.js");
+/******/ 	return hotCreateRequire("./src/index.js")(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/lazy.js":
+/***/ "./lib/ajax.js":
 /*!*********************!*\
-  !*** ./src/lazy.js ***!
+  !*** ./lib/ajax.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (function (url) {\n    return url;\n});\n\n//# sourceURL=webpack:///./lib/ajax.js?");
+
+/***/ }),
+
+/***/ "./lib/fetch/browser.js":
+/*!******************************!*\
+  !*** ./lib/fetch/browser.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ('browser');\n\n//# sourceURL=webpack:///./lib/fetch/browser.js?");
+
+/***/ }),
+
+/***/ "./node_modules/react-dom/index.js":
+/*!*********************************************************************************!*\
+  !*** delegated ./node_modules/react-dom/index.js from dll-reference _dll_react ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference _dll_react */ \"dll-reference _dll_react\"))(\"./node_modules/react-dom/index.js\");\n\n//# sourceURL=webpack:///delegated_./node_modules/react-dom/index.js_from_dll-reference__dll_react?");
+
+/***/ }),
+
+/***/ "./node_modules/react/index.js":
+/*!*****************************************************************************!*\
+  !*** delegated ./node_modules/react/index.js from dll-reference _dll_react ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference _dll_react */ \"dll-reference _dll_react\"))(\"./node_modules/react/index.js\");\n\n//# sourceURL=webpack:///delegated_./node_modules/react/index.js_from_dll-reference__dll_react?");
+
+/***/ }),
+
+/***/ "./src/base.js":
+/*!*********************!*\
+  !*** ./src/base.js ***!
   \*********************/
 /*! no static exports found */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = 'hello';\n\n//# sourceURL=webpack:///./src/base.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _base = __webpack_require__(/*! ./base */ \"./src/base.js\");\n\nvar _base2 = _interopRequireDefault(_base);\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nvar _reactDom2 = _interopRequireDefault(_reactDom);\n\nvar _ajax = __webpack_require__(/*! ajax */ \"./lib/ajax.js\");\n\nvar _ajax2 = _interopRequireDefault(_ajax);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar result = (0, _ajax2.default)('/ajax');\n\n_reactDom2.default.render(_react2.default.createElement(\n    'h1',\n    null,\n    result\n), document.getElementById('root'));\n// fetch fetch.js fetch.json fetch文件夹\nvar fetch = __webpack_require__(/*! fetch */ \"./lib/fetch/browser.js\");\n//console.log(fetch);\n//let get = require('../dist/bundle.js');\n//get.getName();\nconsole.log('hello');\n\n// let name = 'zfpx';\nconsole.log(_base2.default);\nif (undefined == 'development') {\n    var s = 'ssssssssssssssssssssssss';\n    console.log(s);\n    console.log(s);\n    console.log(s);\n    console.log(s);\n}\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "dll-reference _dll_react":
+/*!*****************************!*\
+  !*** external "_dll_react" ***!
+  \*****************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\ndocument.getElementById('play').addEventListener('click', function () {});\n\n//# sourceURL=webpack:///./src/lazy.js?");
+eval("module.exports = _dll_react;\n\n//# sourceURL=webpack:///external_%22_dll_react%22?");
 
 /***/ })
 

@@ -20,7 +20,7 @@ module.exports = {
     module: {
         rules: 
         [
-            /* {
+            {
                 test: /\.js$/,
                 use: {
                     loader:path.resolve(__dirname, 'src', 'loaders', 'log-loader'),
@@ -28,7 +28,7 @@ module.exports = {
                         content:'===============loading=================='
                     }
                 }
-            }, */
+            }, 
             /*   {
                   test: /\.js$/,
                   use: {
@@ -42,7 +42,7 @@ module.exports = {
                 test: /\.less$/,
                 use: ['style-loader', 'less-loader']
             },
-            /* {
+            {
                 test:/\.html$/,
                 use:{
                     loader:'html-layout-loader',
@@ -52,23 +52,26 @@ module.exports = {
                         decorator:'layout'
                     }
                 }
-            }, */
+            }, 
         ]
     },
     plugins: [
-        /* new HtmlWebpackPlugin({
-            template: './src/login.html',
-            filename: 'login.html'
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/home.html',
-            filename: 'home.html'
-        }),
-        new HelloPlugin({name:'zfpx'}),
-        new EmitPlugin(),
-        new FilesPlugin({
-            filename:'files-list.md'
-        }) */
+        //  new HtmlWebpackPlugin({
+        //     template: './src/login.html',
+        //     filename: 'login.html'
+        // }),
+        // new HtmlWebpackPlugin({
+        //     template: './src/home.html',
+        //     filename: 'home.html'
+        // }),
+        // new HelloPlugin({name:'zfpx'}),
+        // // new EmitPlugin(),
+        // new FilesPlugin({
+        //     filename:'files-list.md'
+        // }) 
+
+        // =============
+        
         new HtmlWebpackPlugin({
             tempalte:'./src/index.html',
             filename:'index.html'

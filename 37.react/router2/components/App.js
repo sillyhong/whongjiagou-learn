@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import MenuLink from './MenuLink';
 // import { HashRouter as Router, Route, Link} from 'react-router-dom';
-// import { HashRouter as Router, Route, Link} from '../react-router-dom';
-import { BrowserRouter as Router, Route, Link} from '../react-router-dom';
+import { HashRouter as Router, Route, Link} from '../react-router-dom';
+// import { BrowserRouter as Router, Route, Link} from '../react-router-dom';
 import NavHeader from './NavHeader'
 import 'bootstrap/dist/css/bootstrap.min.css';
 

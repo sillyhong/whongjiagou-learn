@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --open --mode production"
+    "dev": "webpack-dev-server --open --mode development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^9.7.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
@@ -20,16 +21,29 @@
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.10",
     "expose-loader": "^0.7.5",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "fibers": "^4.0.1",
+    "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.0.6",
+    "html-withimg-loader": "^0.1.16",
+    "less": "^2.7.3",
+    "less-loader": "3.0.0",
+    "node-sass": "^4.12.0",
+    "popper.js": "^1.16.0",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.23.0",
+    "sass-loader": "8.0.0",
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.2.3",
-    "webpack": "^4.1.1",
+    "url-loader": "^2.2.0",
+    "vscode-webpack-debugger": "^1.0.0",
+    "webpack": "^4.41.2",
     "webpack-cli": "^2.0.12",
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.15"
   }
 }

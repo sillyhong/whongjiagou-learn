@@ -14,10 +14,13 @@ class HelloPlugin {
     }
     apply(compiler){
         //compiler要启动一次新的编译
+        //compiler.js
         compiler.hooks.compilation.tap('compilation',function(compilation,params){
+            //complilation.js
             compilation.hooks.optimizeChunkModules.tap('optimizeChunkModules',function(chunks, modules){
-                    //console.log(chunks);
-                    //console.log(modules);
+                    console.log('success')
+                    // console.log('chunks', chunks);
+                    // console.log('modules', modules);
             });
         });
     }

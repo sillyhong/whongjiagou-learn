@@ -6,7 +6,7 @@ class FilesPlugin{
     //1.你在监听哪个事件
   apply(compiler){
     compiler.hooks.emit.tapAsync('EmitPlugin',(compilation,callback)=>{
-       // console.log(compilation.assets);
+       console.log('EmitPlugin', compilation.assets);
        let content = '## 文件内容列表 \n\n';
        for(let attr in compilation.assets){
          content+=`- ${attr} \n`;

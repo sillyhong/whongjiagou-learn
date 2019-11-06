@@ -1,6 +1,8 @@
 {
     "favorites.resources": [
         "node_modules\\webpack",
-        "node_modules\\webpack-cli"
+        "node_modules\\webpack-cli",
+        "node_modules/webpack-cli",
+        "node_modules/webpack"
     ]
 }

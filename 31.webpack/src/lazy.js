@@ -6,8 +6,8 @@ document.getElementById('play').addEventListener('click',function(){
         let name = video.getName();
         console.log(name);
     });
-    import('./video.js').then(function(video){
-        let name = video.getName();
-        console.log(name);
-    });
-});
+    // import('./video.js').then(function(video){
+    //     let name = video.getName();
+    //     console.log(name);
+    // });
+});˜

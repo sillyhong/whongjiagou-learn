@@ -1,0 +1,9 @@
+
+> fibers@4.0.1 install /Users/silly/Documents/珠峰架构/zhufengjiagou-learn/29.webpack/node_modules/fibers
+> node build.js || nodejs build.js
+
+`darwin-x64-64` exists; testing
+Binary is fine; exiting
++ fibers@4.0.1
++ webpack@4.41.2
+added 84 packages from 83 contributors, removed 3 packages, updated 46 packages and moved 1 package in 24.287s

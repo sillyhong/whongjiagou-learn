@@ -1,3 +1,3 @@
 import {getName} from './info.js';
 let r = getName();
-console.log(r);
+console.log(r, r.a);

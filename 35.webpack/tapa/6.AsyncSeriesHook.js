@@ -25,7 +25,8 @@ console.time('cost');
 queue.tapAsync('1', function (name, cb) {
     setTimeout(function () {
         console.log(1, name);
-        cb('Wrong');
+        // cb('')
+        cb('Wrong');//后面停止执行
     }, 1000);
 });
 queue.tapAsync('2', function (name, cb) {

@@ -15,7 +15,8 @@
  			chunkId = chunkIds[i];//取出所有的chunkId
  			if(installedChunks[chunkId]) {
                  // [resolve,reject,promise]
- 				resolves.push(installedChunks[chunkId][0]);
+				 console.log('installedChunks[chunkId][0]', installedChunks[chunkId][0])
+				 resolves.push(installedChunks[chunkId][0]);
  			}//改为0表示加载完成
  			installedChunks[chunkId] = 0;
          }
@@ -26,7 +27,7 @@
  			}
  		}
  		if(parentJsonpFunction) parentJsonpFunction(data);
- 		while(resolves.length) {
+ 		while(resolves.length) {//resolve执行  import .then函数会执行
  			resolves.shift()();
  		}
 

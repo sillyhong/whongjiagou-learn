@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //HashRouter 通过路径 里的哈希变量实现的
 //BrowserRouter  用的是 html5的history API实现 
-// import { HashRouter as Router, Route, Switch} from 'react-router-dom';
-import { HashRouter as Router, Route, Switch} from './react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+// import { HashRouter as Router, Route, Switch} from './react-router-dom';
 // import { BrowserRouter as Router, Route, Switch} from './react-router-dom';
 import App from './components/App';
 
@@ -27,34 +27,38 @@ let Test = (props, context)=>{
     console.log('Test props', props, 'context', context)
     return <div>Test</div>
 }
-// if if if    if else 
+
+// if if if    if else  
 //渲染的时候会先取当前的路径(location.hash),然后跟path进行匹配，如果能匹配上则显示component指定的组件，如果不能匹配，则不显示
-// ReactDOM.render(
-//        <App>
-//          <Switch>
-//           <Route  path="/home" component={Home}/>
-//           <Route path="/user" component={User}/>
-//           <Route path="/login" component={Login}/>
-//           <Protected path="/profile" component={Profile}/>
-//          </Switch>
-//        </App>,
-//     document.querySelector('#root')
-// );
-//跑通路由
 ReactDOM.render(
-         <App>
-           {/* <Router> */}
-            <Switch>
-                 {/* router 参数 component path redner */}
-                <Route  path="/home" component={Home}/>
-                <Route path="/user" component={User}/>
-                <Route path="/login" component={Login}/>
-                <Protected path="/profile" component={Profile}/>
-            </Switch>
-           {/* </Router>  */}
-         </App>,
-      document.querySelector('#root')
-  );
+  <Router>
+  {/* <Switch> */}
+          <Route path="/"  component={Home}>
+              <Route path="accounts" component={Profile}/>
+              <Route path="/test" component={Profile}/>
+              <Route path="/test/test"  component={Test}/>
+              <Route path="/login"  component={Login}/>
+              <Redirect  to='/login'/>
+          </Route>       
+  {/* </Switch> */}
+</Router>,
+    document.querySelector('#root')
+);
+//跑通路由
+// ReactDOM.render(
+//          <App>
+//            {/* <Router> */}
+//             <Switch>
+//                  {/* router 参数 component path redner */}
+//                 <Route  path="/home" component={Home}/>
+//                 <Rout path="/user" component={User}/>
+//                 <Route path="/login" component={Login}/>
+//                 <Protected path="/profile" component={Profile}/>
+//             </Switch>
+//            {/* </Router>  */}
+//          </App>,
+//       document.querySelector('#root')
+//   );
 /**
  * 
  {

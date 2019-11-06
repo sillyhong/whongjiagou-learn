@@ -12,7 +12,7 @@ estraverse.traverse(ast, {
         }
 
     },
-    leave(node) ;{
+    leave(node) {
         console.log('leave ', node.type);
         if (node.type == 'Identifier') {
             node.name += '_leave';
